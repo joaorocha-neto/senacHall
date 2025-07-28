@@ -16,7 +16,7 @@
                     <img width="100" src="img/image.png" alt="">
                 </div>
             </a>
-            <ul class="menu">
+            <ul id="menu">
                 <li onclick="loadPageIntoDiv('agendamento.html', 'Func')" >
                     <img src="./img/Calendario.png" alt="">
                     <div>Agendamentos</div>
@@ -54,30 +54,25 @@
     const load = document.getElementById('Func');
     load.innerHTML = loadPageIntoDiv('agendamento.html', 'Func');
     
-    function loadPageIntoDiv(url, divId) {
+    function loadPageIntoDiv(url, divId, event) {
         fetch(url)
           .then(response => response.text())
           .then(data => {
             const divSec= document.getElementById(divId)
             divSec.innerHTML = data;
 
-
           })
           .catch(error => console.error('Erro ao carregar a página:', error));
-}
-      
-      function removerStyle() {
-        Menu.forEach(section => {
-            section.classList.remove('funcionalidadeSelecionada')
-        })
-      }
+    }
+    const Menu = document.querySelectorAll("#menu li");
+    Menu.forEach(item => {
+    item.addEventListener("click", function () {
+    // Remove a classe de todos os itens
+        Menu.forEach(el => el.classList.remove("funcionalidadeSelecionada"));
 
-      const Menu = document.querySelectorAll('.menu');
-      Menu.forEach(i 
-
-
-            
-        })
-        });
+        // Adiciona ao item clicado
+        this.classList.add("funcionalidadeSelecionada");
+    });
+});
 </script>
 </html>
