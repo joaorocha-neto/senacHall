@@ -17,7 +17,7 @@
                 </div>
             </a>
             <ul id="menu">
-                <li onclick="loadPageIntoDiv('agendamento.html', 'Func')" >
+                <li class="funcionalidadeSelecionada" onclick="loadPageIntoDiv('agendamento.html', 'Func')" >
                     <img src="./img/Calendario.png" alt="">
                     <div>Agendamentos</div>
                 </li>
@@ -51,6 +51,9 @@
 </body>
 
 <script>
+
+    import users from "./js/api.js";    
+
     const load = document.getElementById('Func');
     load.innerHTML = loadPageIntoDiv('agendamento.html', 'Func');
     
